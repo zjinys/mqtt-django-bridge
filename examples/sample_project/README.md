@@ -30,11 +30,12 @@ Follow the steps below to run it:
 1. `mysite/asgi.py` should look like this:
 
         import os
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
+        
         import django
         from channels.routing import get_default_application
         from channels.layers import get_channel_layer
         
-        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
         django.setup()
         
         # Application
@@ -66,7 +67,7 @@ Follow the steps below to run it:
         application = ProtocolTypeRouter({
             'channel': ChannelNameRouter(
                 {
-                    "mqtt": MqttConsumer
+                    "mqtt.pub": MqttConsumer.as_asgi()
                 }
             )
         })

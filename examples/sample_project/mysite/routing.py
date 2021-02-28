@@ -5,6 +5,6 @@ from mqtt_app.consumers import MqttConsumer
 
 application = ProtocolTypeRouter({
     "channel": ChannelNameRouter({
-        "mqtt": MqttConsumer
+        "mqtt.pub": MqttConsumer.as_asgi()
     }),
 })
