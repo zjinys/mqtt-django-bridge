@@ -9,21 +9,21 @@ def get_version(package):
 
 
 setup(
-    name="chasgimqtt",
-    version=get_version("chasgimqtt"),
-    author="Xavier Lesa",
-    author_email="xavierlesa@gmail.com",
-    url="https://github.com/xavierlesa/channels-asgi-mqtt",
-    description="Interface between MQTT broker and ASGI and Channels 2.0 compatible",
+    name="django-mqtt-bridge",
+    version=get_version("django-mqtt-bridge"),
+    author="Nilson Oliveira",
+    author_email="nilsonmont.o@gmail.com",
+    url="https://github.com/nilmonto/mqtt-django-bridge",
+    description="Interface MQTT ASGI compatible with Django Channels 3.",
     long_description=open("README.md").read(),
     license="GPLv3+",
-    packages=["chasgimqtt"],
+    packages=["django-mqtt-bridge"],
     install_requires=[
         "paho-mqtt",
     ],
     entry_points={
         "console_scripts": [
-            "chasgimqtt=chasgimqtt.cli:main",
+            "django-mqtt-bridge=django-mqtt-bridge.cli:main",
         ]
     },
     classifiers=[

@@ -67,7 +67,6 @@ def main():
             topic, qos = t.split(':')
             topics.append((topic, int(qos)))
 
-
     logger.info("\r\nStarting interface to MQTT broker {}:{}, channel {}\r\n\
             Topics: {}\r\n\
             MQTT channel name: {}\r\n\
@@ -79,7 +78,6 @@ def main():
                 args.channel_sub,
                 args.channel_pub,
     ))
-
 
     server = Server(
             channel_layer, 

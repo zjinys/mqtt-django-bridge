@@ -1,27 +1,28 @@
-# channels-asgi-mqtt
-Interface between MQTT and ASGI and Channels 2.0 compatible
+# MQTT-Django Bridge
+Interface MQTT ASGI compatible with Django Channels 3.
 
 
 ## Installation
 
 ```bash
-pip install chasgimqtt
+pip install django-mqtt-bridge
 ```
 
 
 ## Configuration
 
-First you would to configure a valid `channel_layer` endpoint to consume and connect between chasgimqtt and channels.
+First you would to configure a valid `channel_layer` endpoint to consume and connect between *django-mqtt-bridge* and channels.
 
 In `your_channel_application/asgi.py`:
 
 ```python
 import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_channel_application.settings")
+
 import django
 from channels.routing import get_default_application
 from channels.layers import get_channel_layer
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_channel_application.settings")
 django.setup()
 
 # Application
@@ -31,6 +32,40 @@ application = get_default_application()
 channel_layer = get_channel_layer()
 ```
 
+In `your_channel_application/consumers.py`:
+
+from channels.consumer import SyncConsumer
+
+```python
+class MqttConsumer(SyncConsumer):
+    def mqtt_sub(self, event):
+        topic = event['text']['topic']
+        payload = event['text']['payload']
+        # do something with topic and payload
+        print('{} - {}'.format(topic, payload))
+
+    def mqtt_pub(self, event):
+        pass
+```
+
+In `your_channel_application/routing.py`:
+
+
+```python
+from django.core.asgi import get_asgi_application
+from .consumers import MqttConsumer
+from channels.routing import ProtocolTypeRouter, ChannelNameRouter, URLRouter
+from channels.auth import AuthMiddlewareStack
+
+application = ProtocolTypeRouter({
+    "http": get_asgi_application(),
+    "channel": ChannelNameRouter(
+        {
+            "mqtt.pub": MqttConsumer.as_asgi()
+        }
+    )
+})
+```
 
 ## Usage
 
