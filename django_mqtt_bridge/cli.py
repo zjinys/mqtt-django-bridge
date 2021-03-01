@@ -3,8 +3,7 @@ import importlib
 import argparse
 import logging
 
-from .server import Server
-
+from server import Server
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +19,7 @@ def channel_type(channel_name):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Interface between MQTT and ASGI and Channels 2.0 compatible")
+    parser = argparse.ArgumentParser(description="Interface MQTT ASGI compatible with Django Channels 3.")
     parser.add_argument("-H", "--host", help="MQTT broker host",
                         default="localhost")
     parser.add_argument("-p", "--port", help="MQTT broker port", type=int,
@@ -93,3 +92,7 @@ def main():
         )
 
     server.run()
+
+
+if __name__ == '__main__':
+    main()

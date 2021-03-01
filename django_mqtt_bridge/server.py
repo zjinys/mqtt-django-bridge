@@ -100,7 +100,7 @@ class Server(object):
         try:
             payload = json.loads(payload)
         except Exception as e:
-            logger.debug("Payload is not a JSON Serializable: {}".format(e.what()))
+            logger.debug("Payload is not a JSON Serializable: {}".format(e))
             pass
 
         logger.debug("Raw message {}".format(payload))
