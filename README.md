@@ -70,16 +70,16 @@ application = ProtocolTypeRouter({
 ## Usage
 
 ```bash
-chasgimqtt -H iot.eclipse.org -p 1883 --topic=some_topic:2 your_channel_application.asgi:channel_layer
+django-mqtt-bridge -H iot.eclipse.org -p 1883 --topic=some_topic:2 your_channel_application.asgi:channel_layer
 ```
 
 
 ## Options
 
 ```
-chasgimqtt -h
+django-mqtt-bridge -h
 
-usage: chasgimqtt [-h] [-H HOST] [-p PORT] [-v] [-U USERNAME] [-P PASSWORD]
+usage: django-mqtt-bridge [-h] [-H HOST] [-p PORT] [-v] [-U USERNAME] [-P PASSWORD]
                   [--topic TOPICS] [-n CHANNEL_NAME] [-s CHANNEL_SUB]
                   [-x CHANNEL_PUB]
                   channel_layer

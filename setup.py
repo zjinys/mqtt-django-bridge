@@ -1,7 +1,6 @@
 import os.path
 import re
-from setuptools import setup
-
+from setuptools import setup, find_packages
 
 def get_version(package):
     init_py = open(os.path.join(package, '__init__.py')).read()
@@ -17,13 +16,13 @@ setup(
     description="Interface MQTT ASGI compatible with Django Channels 3.",
     long_description=open("README.md").read(),
     license="GPLv3+",
-    packages=["django-mqtt-bridge"],
+    packages=find_packages(),
     install_requires=[
         "paho-mqtt",
     ],
     entry_points={
         "console_scripts": [
-            "django-mqtt-bridge=django-mqtt-bridge.cli:main",
+            "django-mqtt-bridge=django_mqtt_bridge.cli:main",
         ]
     },
     classifiers=[

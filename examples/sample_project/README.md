@@ -1,6 +1,6 @@
 # Sample Project
 
-This project uses the chasgimqtt interface to receive data from an MQTT broker.
+This project uses the django-mqtt-bridge interface to receive data from an MQTT broker.
 
 Install dependencies:
 
@@ -84,10 +84,10 @@ Follow the steps below to run it:
    python manage.py runserver
    ```
 
-1. run `chasgimqtt`:
+1. run `django-mqtt-bridge`:
 
     ```bash
-    chasgimqtt -H iot.eclipse.org -p 1883 --topic=some_topic:2 mysite.asgi:channel_layer
+    django-mqtt-bridge -H iot.eclipse.org -p 1883 --topic=some_topic:2 mysite.asgi:channel_layer
     ```
 
 1. run the [workers](https://channels.readthedocs.io/en/latest/topics/worker.html#worker-and-background-tasks):
