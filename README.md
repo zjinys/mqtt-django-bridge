@@ -70,16 +70,16 @@ application = ProtocolTypeRouter({
 ## Usage
 
 ```bash
-django-mqtt-bridge -H iot.eclipse.org -p 1883 --topic=some_topic:2 your_channel_application.asgi:channel_layer
+django_mqtt_bridge -H iot.eclipse.org -p 1883 --topic=some_topic:2 your_channel_application.asgi:channel_layer
 ```
 
 
 ## Options
 
 ```
-django-mqtt-bridge -h
+django_mqtt_bridge -h
 
-usage: django-mqtt-bridge [-h] [-H HOST] [-p PORT] [-v] [-U USERNAME] [-P PASSWORD]
+usage: django_mqtt_bridge [-h] [-H HOST] [-p PORT] [-v] [-U USERNAME] [-P PASSWORD]
                   [--topic TOPICS] [-n CHANNEL_NAME] [-s CHANNEL_SUB]
                   [-x CHANNEL_PUB]
                   channel_layer
@@ -127,7 +127,7 @@ optional arguments:
 To subscribe to a list of topics use the same option `--topic`.
 
 ```
---topic some_topic:qos --topic another_topic:qos --topic home/kitchen_gas_sensor:2 --topic home/office_air_sensor:0
+django-mqtt-bridge --topic some_topic:qos --topic another_topic:qos --topic home/kitchen_gas_sensor:2 --topic home/office_air_sensor:0
 ```
 
 **CHANNEL_NAME** : Name of Channels's channel to send and receive messages, this `channel_name` must to exist in your channel's consumer, default is `mqtt`.

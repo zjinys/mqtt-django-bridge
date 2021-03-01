@@ -4,9 +4,8 @@ This project uses the django-mqtt-bridge interface to receive data from an MQTT 
 
 Install dependencies:
 
-```console
-pip install channels_redis celery
-```
+.. code
+    pip install channels_redis celery
 
 Follow the steps below to run it:
 

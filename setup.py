@@ -8,13 +8,14 @@ def get_version(package):
 
 
 setup(
-    name="django-mqtt-bridge",
-    version=get_version("django-mqtt-bridge"),
+    name="django_mqtt_bridge",
+    version=get_version("django_mqtt_bridge"),
     author="Nilson Oliveira",
     author_email="nilsonmont.o@gmail.com",
     url="https://github.com/nilmonto/mqtt-django-bridge",
     description="Interface MQTT ASGI compatible with Django Channels 3.",
-    long_description=open("README.md").read(),
+    long_description= open("README.md").read(),
+    long_description_content_type="text/markdown",
     license="GPLv3+",
     packages=find_packages(),
     install_requires=[
@@ -22,7 +23,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "django-mqtt-bridge=django_mqtt_bridge.cli:main",
+            "django_mqtt_bridge=django_mqtt_bridge.cli:main",
         ]
     },
     classifiers=[
