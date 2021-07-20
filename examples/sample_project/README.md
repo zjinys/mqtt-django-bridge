@@ -13,7 +13,7 @@ Follow the steps below to run it:
    in this example we use Redis as the backing store:
    - run `redis`:
         ```bash
-        docker run -p 6379:6379 -d redis:2.8
+        docker run -p 6379:6379 -d redis:6.2.4
         ```
    - add the following to `mysite/settings.py`:
      

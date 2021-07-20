@@ -175,8 +175,11 @@ class Server(object):
         logger.info("Loop for messages pool")
 
         while True:
-            logger.info("Wait for a message from channel %s", self.mqtt_channel_pub)
-            self._mqtt_receive(await self.channel.receive(self.mqtt_channel_pub))
+            try:
+                logger.info("Wait for a message from channel %s", self.mqtt_channel_pub)
+                self._mqtt_receive(await self.channel.receive(self.mqtt_channel_pub))
+            except Exception as e:
+                logger.exception('client_pool_message Exception: {}'.format(repr(e)))
 
     def stop_server(self, signum):
         logger.info("Received signal {}, terminating".format(signum))
