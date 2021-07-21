@@ -3,7 +3,7 @@ import importlib
 import argparse
 import logging
 
-from server import Server
+from .server import Server
 
 logger = logging.getLogger(__name__)
 
