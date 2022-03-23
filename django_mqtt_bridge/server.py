@@ -185,7 +185,7 @@ class Server(object):
     def stop_server(self, signum):
         logger.info("Received signal {}, terminating".format(signum))
         self.stop = True
-        for task in asyncio.Task.all_tasks():
+        for task in asyncio.all_tasks():
             task.cancel()
         self.loop.stop()
 
